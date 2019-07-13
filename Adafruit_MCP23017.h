@@ -42,6 +42,9 @@ public:
   uint16_t readGPIOAB();
   uint8_t readGPIO(uint8_t b);
 
+  void readGPIOBuffor();
+  uint8_t digitalBufforRead(uint8_t p);
+
   void setupInterrupts(uint8_t mirroring, uint8_t open, uint8_t polarity);
   void setupInterruptPin(uint8_t p, uint8_t mode);
   uint8_t getLastInterruptPin();
@@ -49,6 +52,7 @@ public:
 
  private:
   uint8_t i2caddr;
+  uint16_t gpioBuffor;
 
   uint8_t bitForPin(uint8_t pin);
   uint8_t regForPin(uint8_t pin, uint8_t portAaddr, uint8_t portBaddr);

@@ -280,4 +280,10 @@ uint8_t Adafruit_MCP23017::getLastInterruptPinValue(){
 	return MCP23017_INT_ERR;
 }
 
+void Adafruit_MCP23017::readGPIOBuffor(){
+	gpioBuffor = readGPIOAB();
+}
 
+uint8_t Adafruit_MCP23017::digitalBufforRead(uint8_t pin){
+	return (gpioBuffor >> pin) & 0x1;
+}
